@@ -9,7 +9,7 @@ from setuptools import Command, find_packages, setup
 
 
 __title__ = "pyecharts"
-__description__ = "Python options, make charting easier"
+__description__ = "Python options, make charting easier. customed version by svtter."
 __url__ = "https://github.com/pyecharts/pyecharts"
 __author_email__ = "chenjiandongx@qq.com"
 __license__ = "MIT"

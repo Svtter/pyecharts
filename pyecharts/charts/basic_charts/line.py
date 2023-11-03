@@ -47,19 +47,20 @@ class Line(RectChart):
         self._append_color(color)
         self._append_legend(series_name)
 
-        if all([isinstance(d, opts.LineItem) for d in y_axis]):
-            data = y_axis
-        else:
-            # 合并 x 和 y 轴数据，避免当 X 轴的类型设置为 'value' 的时候，
-            # X、Y 轴均显示 Y 轴数据
-            try:
-                xaxis_index = xaxis_index or 0
-                data = [
-                    list(z)
-                    for z in zip(self.options["xAxis"][xaxis_index]["data"], y_axis)
-                ]
-            except IndexError:
-                data = [list(z) for z in zip(self._xaxis_data, y_axis)]
+        data = y_axis
+        # if all([isinstance(d, opts.LineItem) for d in y_axis]):
+        #     data = y_axis
+        # else:
+        #     # 合并 x 和 y 轴数据，避免当 X 轴的类型设置为 'value' 的时候，
+        #     # X、Y 轴均显示 Y 轴数据
+        #     try:
+        #         xaxis_index = xaxis_index or 0
+        #         data = [
+        #             list(z)
+        #             for z in zip(self.options["xAxis"][xaxis_index]["data"], y_axis)
+        #         ]
+        #     except IndexError:
+        #         data = [list(z) for z in zip(self._xaxis_data, y_axis)]
 
         if self.options.get("dataset") is not None and not y_axis:
             data = None
